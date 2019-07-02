@@ -42,7 +42,7 @@ public abstract class AbstractCaptcha implements ICaptcha {
 	/** 验证码图片 */
 	protected byte[] imageBytes;
 	/** 验证码生成器 */
-	protected CodeGenerator generator;
+	protected RandomGenerator generator;
 	/** 背景色 */
 	protected Color background;
 
@@ -66,7 +66,7 @@ public abstract class AbstractCaptcha implements ICaptcha {
 	 * @param generator 验证码生成器
 	 * @param interfereCount 验证码干扰元素个数
 	 */
-	public AbstractCaptcha(int width, int height, CodeGenerator generator, int interfereCount) {
+	public AbstractCaptcha(int width, int height, RandomGenerator generator, int interfereCount) {
 		this.width = width;
 		this.height = height;
 		this.generator = generator;
@@ -176,7 +176,7 @@ public abstract class AbstractCaptcha implements ICaptcha {
 	 * 
 	 * @return 验证码生成器
 	 */
-	public CodeGenerator getGenerator() {
+	public RandomGenerator getGenerator() {
 		return generator;
 	}
 
@@ -185,7 +185,7 @@ public abstract class AbstractCaptcha implements ICaptcha {
 	 * 
 	 * @param generator 验证码生成器
 	 */
-	public void setGenerator(CodeGenerator generator) {
+	public void setGenerator(RandomGenerator generator) {
 		this.generator = generator;
 		// 重新生成验证码
 		this.createCode();
